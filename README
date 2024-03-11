@@ -1,0 +1,4 @@
+npx expo install expo-file-system
+npx expo install expo-av
+npx expo install expo-sqlite
+npx expo install expo-router expo-linking expo-constants expo-status-bar react-native-safe-area-context react-native-screens
