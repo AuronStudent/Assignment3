@@ -74,16 +74,19 @@ export default function Page() {
     }
 
     const playRecording = async (id) => {
-        if (recordings[id].uri == null){
-            console.log("the first recording doesnt play for some reason")
-        }else{
-        const { sound } = await Audio.Sound.createAsync({
-            uri: recordings[id].uri,
-        });
+        try{
+            
         
-        await sound.replayAsync();
-        console.log('Playing recorded sound from ', recordings[id]);
+            const { sound } = await Audio.Sound.createAsync({
+                uri: recordings[id].uri,
+            });
+
+            await sound.replayAsync();
+            console.log('Playing recorded sound from ', recordings[id]);
+        }catch (error) {
+            console.log(error)
         }
+        
     }
 
     const loadSound = async (uri) => {
